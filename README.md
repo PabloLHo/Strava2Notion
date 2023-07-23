@@ -1,0 +1,1 @@
+# Strava2Notion
