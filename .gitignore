@@ -9,3 +9,7 @@
 
 /__pycache__
 /.idea
+/build
+/dist
+/Dependencias/__pycache__
+/Config/__pycache__

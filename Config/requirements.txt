@@ -3,3 +3,4 @@ notion==0.0.27
 selenium==4.10.0
 requests==2.31.0
 pytz==2023.3
+pyinstaller==5.13.0

@@ -2,8 +2,6 @@ from stravaio import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from config import CLIENT_ID, CLIENT_SECRET
-import notion_api
 import os
 import threading
 
@@ -11,6 +9,7 @@ import threading
 token = {}
 
 def obtenerToken(client_id=None, client_secret=None):
+    global token
     if client_id is None:
         client_id = os.getenv('STRAVA_CLIENT_ID', None)
         if client_id is None:
@@ -22,6 +21,7 @@ def obtenerToken(client_id=None, client_secret=None):
 
     port = 8000
     pedirAutorizacion(client_id, client_secret, port)
+    return token
 
 
 def pedirAutorizacion(client_id, client_secret, port):
@@ -38,9 +38,10 @@ def pedirAutorizacion(client_id, client_secret, port):
     rv = base_url + '?' + values_url
 
     driver = webdriver.Chrome()
+    driver.minimize_window()
     driver.get(rv)
-    boton = driver.find_element(By.ID, "email").send_keys("<YOUR STRAVA GMAIL ACCOUNT>")
-    boton = driver.find_element(By.ID, "password").send_keys("<YOUR STRAVA PASSWORD>")
+    boton = driver.find_element(By.ID, "email").send_keys("")
+    boton = driver.find_element(By.ID, "password").send_keys("")
     driver.find_element(By.ID, "password").send_keys(Keys.ENTER)
     servidor_thread = threading.Thread(target=obtenerAutorizacion, args=(port, client_id, client_secret))
     servidor_thread.start()
@@ -89,15 +90,3 @@ def obtenerAutorizacion(port, client_id, client_secret):
             data = url.path.encode()
         global token
         token = data
-
-
-if __name__ == '__main__':
-    # Get Strava Data
-    obtenerToken(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-    client = StravaIO(access_token=token["access_token"])
-    activities = client.get_logged_in_athlete_activities()
-    paginas = notion_api.get_pages()
-
-    for activity in activities:
-        if not notion_api.obtenerPagina(paginas, activity.id):
-            notion_api.create_page(activity)
