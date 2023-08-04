@@ -13,3 +13,5 @@
 /dist
 /Dependencias/__pycache__
 /Config/__pycache__
+/main.spec
+/Strava2Notion

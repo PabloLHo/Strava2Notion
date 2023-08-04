@@ -43,7 +43,7 @@ def create_page(actividad):
     create_url = "https://api.notion.com/v1/pages"
 
     published_date = actividad.start_date.isoformat()
-    zona_horaria_strava = pytz.timezone(actividad.timezone[-13:])
+    zona_horaria_strava = pytz.timezone(actividad.timezone[12:])
 
     # Convierte la fecha y hora UTC a la zona horaria asociada
     fecha_utc_obj = datetime.strptime(published_date[0:-6], "%Y-%m-%dT%H:%M:%S")
