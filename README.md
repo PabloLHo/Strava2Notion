@@ -1,3 +1,5 @@
+<img src="Recursos/Logo.png" alt="Logo" style="width: 10%"/>
+
 # Strava2Notion
 Development of a Python application for the management and administration of Strava sports information and its automatic storage in the Notion application.
 
@@ -21,7 +23,7 @@ auto-py-to-exe
 ```
 Once it has been executed, a window will open to fill in the data for the creation of the executable. 
 <p align="center">
-  <img src="Imagenes/autoPyToExe.png" alt="Auto-Py-To-Exe"/>
+  <img src="Recursos/autoPyToExe.png" alt="Auto-Py-To-Exe" style="width: 50%"/>
 </p>
 The most important data to fill in will be:
 
@@ -51,11 +53,11 @@ Regarding the Notion API, it should be noted that from the application itself it
 ### Database populated with data
 First, an image of a database enriched with sports information stored after running the program is presented.
 <p align="center">
-  <img src="Imagenes/bbddNotion.png" alt="Base de datos Notion"/>
+  <img src="Recursos/bbddNotion.png" alt="Base de datos Notion"/>
 </p>
 
 
 In addition to this, another database is developed with the best records in different aspects and disciplines as shown in the following image.
 <p align="center">
-  <img src="Imagenes/bbddNotion_2.png" alt="Base de datos Notion mejores marcas"/>
+  <img src="Recursos/bbddNotion_2.png" alt="Base de datos Notion mejores marcas"/>
 </p>
