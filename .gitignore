@@ -15,3 +15,5 @@
 /Config/__pycache__
 /main.spec
 /Strava2Notion
+
+/Config/config.py
